@@ -41,7 +41,7 @@ Restaurant adds food → Food is listed → User orders → Quantity updates →
 
 - - - -
 
-## Team Details (Optional)
+## Team Details - Code Hustlers
 - Sayan Ralvin V  
 - Chandan T C  
 - Yashwanth G
