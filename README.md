@@ -3,7 +3,7 @@
 ## Team Code Hustlers
 kalpAIthon 2.0 Hackathon Project
 
-## Team Member
+## Team Members
 - Sayan Ralvin V (Team Lead)
 - Chandan T C (Member)
 - Yashwanth G (Member)
