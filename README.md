@@ -60,6 +60,6 @@ Location-based services
 Advanced AI classification
 
 ## Team Members
-Sayan Ralvin V
-Chandan T C
-Yashwanth G
+| Sayan Ralvin V |
+Chandan T C |
+Yashwanth G |
