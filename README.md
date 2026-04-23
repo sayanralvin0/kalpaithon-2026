@@ -28,30 +28,12 @@ It connects restaurants and users to:
 ---
 
 ## 🏗️ Architecture Flow Diagram
-Browser (Frontend)
-      ↓
-Flask Backend (API)
-      ↓
-Firebase Database
-      ↓
-Response to Frontend
+Browser (Frontend) → Flask Backend (API) → Firebase Database → Response to Frontend
 
 ---
 
 ## 🔄 User Flow Diagram
-Restaurant adds food
-      ↓
-Food listed on website
-      ↓
-User selects item & quantity
-      ↓
-Order placed → quantity updated
-      ↓
-User uploads waste image
-      ↓
-System classifies waste
-      ↓
-Impact stats updated
+Restaurant adds food → Food listed on website → User selects item & quantity → Order placed → quantity updated → User uploads waste image → System classifies waste → Impact stats updated
 
 ## Future Enhancements
 Camera-based waste detection
