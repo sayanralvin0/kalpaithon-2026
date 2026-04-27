@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Upload - ZeroWaste Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="waste-bg">
+
+    <nav>
+        <a href="/" class="nav-brand"><span class="icon" aria-hidden="true">♻</span> ZeroWaste Hub</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/waste.html" class="nav-link-active">Waste upload</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <h1><span class="hero-icon" aria-hidden="true">♻️</span> Waste segregation AI</h1>
+        <p class="tagline">Snap a photo — we help you tell organic waste from plastic so sorting takes seconds, not guesswork.</p>
+    </header>
+
+    <div class="card">
+        <h3>Analyze your waste</h3>
+        <p>Upload a clear image. The model estimates whether it looks more like organic or plastic waste.</p>
+
+        <form id="waste-form" enctype="multipart/form-data">
+            <div class="upload-field">
+                <label for="waste-file">Image file</label>
+                <div class="file-input-wrap">
+                    <input type="file" id="waste-file" name="waste-file" accept="image/*" required>
+                </div>
+            </div>
+            <button type="submit">Analyze now</button>
+        </form>
+
+        <div id="waste-result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

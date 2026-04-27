@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Analysis - ZeroWaste Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="waste-bg">
+    <nav>
+        <a href="/" class="nav-brand"><span class="icon" aria-hidden="true">♻</span> ZeroWaste Hub</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/waste.html">Waste upload</a>
+            <a href="/activity" class="nav-link-active">Trend check</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <h1><span class="hero-icon" aria-hidden="true">📊</span> Waste trend check</h1>
+        <p class="tagline">Compare today’s kitchen waste against a rolling baseline so you can spot spikes early.</p>
+    </header>
+
+    <div class="card">
+        <h3>Activity task</h3>
+        <p>Enter today’s waste amount to check against the 7-day average (baseline ~5.24 kg).</p>
+
+        <form action="/check-trend" method="POST" class="activity-form">
+            <input type="number" step="0.1" name="amount" placeholder="Waste today (kg), e.g. 9.5" required>
+            <button type="submit">Check for high waste</button>
+        </form>
+
+        {% if result %}
+            {% if result.is_high %}
+                <div class="alert-box">
+                    <h4>High waste detected</h4>
+                    <p>Today: <strong>{{ result.today }} kg</strong> · Average: <strong>{{ result.avg }} kg</strong></p>
+                    <p><em>Tip: try reducing prep quantities for tomorrow.</em></p>
+                </div>
+            {% else %}
+                <div class="normal-box">
+                    <h4>Normal levels</h4>
+                    <p>Today’s waste ({{ result.today }} kg) is within a safe range vs. the baseline.</p>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

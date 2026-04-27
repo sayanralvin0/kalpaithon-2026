@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Panel - ZeroWaste Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="restaurant-bg">
+
+    <nav>
+        <a href="/" class="nav-brand"><span class="icon" aria-hidden="true">♻</span> ZeroWaste Hub</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/restaurant.html" class="nav-link-active">Restaurant panel</a>
+            <a href="/waste.html">Waste upload</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <h1><span class="hero-icon" aria-hidden="true">🍳</span> Restaurant panel</h1>
+        <p class="tagline">List surplus portions so nearby customers can pick them up before they go to waste.</p>
+    </header>
+
+    <form id="add-food-form">
+        <h3>List new leftover food</h3>
+        <input type="text" id="name" placeholder="Food name (e.g. biryani)" required>
+        <input type="number" id="price" placeholder="Price (₹)" required>
+        <input type="number" id="quantity" placeholder="Quantity" required>
+        <input type="number" id="duration" placeholder="Duration (mins)" required>
+        <input type="text" id="location" placeholder="Pickup location" required>
+        <button type="submit">Add food item</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

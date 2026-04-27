@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroWaste Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="home-bg">
+    <nav>
+        <a href="/" class="nav-brand"><span class="icon" aria-hidden="true">♻</span> ZeroWaste Hub</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link-active">Home</a>
+            <a href="/waste.html">Waste Upload</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <h1><span class="hero-icon" aria-hidden="true">🌱</span> Leftovers, meet purpose</h1>
+        <p class="tagline">total ~78 million tonnes of food wasted in India each year</p>
+    </header>
+
+    <div class="card" id="role-selection">
+        <h2>Select your role</h2>
+        <p>Customer orders surplus meals <br> Restaurants list what would otherwise go unused.</p>
+        <div class="row-btns">
+            <button id="customer-role-btn" type="button">Customer</button>
+            <button id="restaurant-role-btn" type="button">Restaurant</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="auth-card">
+        <h2 id="auth-title"></h2>
+        <p id="auth-subtitle"></p>
+        <form id="auth-form">
+            <input type="email" id="auth-email" placeholder="Email" required>
+            <div class="password-field">
+                <input type="password" id="auth-password" placeholder="Password" required>
+                <button type="button" id="toggle-password-btn" class="password-toggle-btn">Show</button>
+            </div>
+            <input class="hidden" type="url" id="auth-location-url" placeholder="Restaurant Google Maps URL">
+            <input class="hidden" type="text" id="auth-address" placeholder="Typed restaurant address">
+            <button type="submit">Continue</button>
+            <button type="button" id="back-to-role" class="secondary-btn">Back</button>
+        </form>
+    </div>
+
+    <div class="card hidden" id="customer-dashboard">
+        <h2>Customer inventory</h2>
+        <p>Pick a quantity and place an order. Stock updates live for restaurant owners.</p>
+        <div id="customer-table-wrap"></div>
+        <div class="row-btns">
+            <button id="customer-refresh-btn" type="button" class="secondary-btn">Refresh items</button>
+            <button id="customer-switch-role-btn" type="button" class="secondary-btn">Logout / switch role</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="restaurant-dashboard">
+        <h2>Restaurant panel</h2>
+        <form id="add-food-form">
+            <input type="text" id="name" placeholder="Food item name" required>
+            <input type="number" id="quantity" min="1" placeholder="Quantity available" required>
+            <input type="number" id="expiry-minutes" min="1" placeholder="Time to expire (minutes)" required>
+            <button type="submit">Add food item</button>
+        </form>
+        <hr>
+        <h3>Your listed items</h3>
+        <div id="restaurant-items-wrap"></div>
+        <div class="row-btns">
+            <a href="/activity" class="analysis-link-btn">Open waste analysis</a>
+            <button id="restaurant-refresh-btn" type="button" class="secondary-btn">Refresh your items</button>
+            <button id="restaurant-switch-role-btn" type="button" class="secondary-btn">Logout / switch role</button>
+        </div>
+    </div>
+
+    <p id="status-message" class="status-message"></p>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
